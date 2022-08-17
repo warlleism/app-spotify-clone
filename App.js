@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useState } from 'react';
+import Header from './src/view/header';
+import Mixes from './src/view/mixes';
+
+const { height } = Dimensions.get("window")
 
 export default function App() {
+
+  const [color, setColor] = useState("")
+
+  const GetColor = (value) => {
+    setColor(value)
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <LinearGradient
+          end={{ x: 0.3, y: 0.2 }}
+          colors={[color == "" ? "#1f232aeb" : color, 'black']}
+          style={styles.background}
+        >
+          <Header color={GetColor} />
+          <Mixes />
+        </LinearGradient>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  background: {
+    height: height * 1.1
   },
 });

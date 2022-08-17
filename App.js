@@ -3,6 +3,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import Header from './src/view/header';
 import Mixes from './src/view/mixes';
+import Feito from './src/view/feito';
+import Estacoes from './src/view/estacoes';
 
 const { height } = Dimensions.get("window")
 
@@ -16,22 +18,18 @@ export default function App() {
 
   return (
     <SafeAreaView>
-      <ScrollView>
-        <LinearGradient
-          end={{ x: 0.3, y: 0.2 }}
-          colors={[color == "" ? "#1f232aeb" : color, 'black']}
-          style={styles.background}
-        >
+      <LinearGradient
+        end={{ x: 0.3, y: 0.2 }}
+        colors={[color == "" ? "#1f232aeb" : color, 'black']}
+      >
+        <ScrollView>
           <Header color={GetColor} />
           <Mixes />
-        </LinearGradient>
-      </ScrollView>
+          <Feito />
+          <Estacoes />
+        </ScrollView>
+      </LinearGradient>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  background: {
-    height: height * 1.1
-  },
-});

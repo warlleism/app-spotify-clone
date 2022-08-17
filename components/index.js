@@ -15,9 +15,9 @@ const Container = (props) => {
                         return (
                             <TouchableOpacity onPress={() => console.log("teste")} key={imagens.dsc} style={{ width: 170, marginLeft: 10, marginRight: 10, position: "relative" }}>
                                 <View style={{ borderBottomColor: imagens.borderColor ? imagens.borderColor : "yellow", borderBottomWidth: 4, }}>
-                                    <Image source={imagens.img} style={{ width: "100%", height: 130, }} />
+                                    <Image source={imagens.img} style={{ width: "100%", height: 160, }} />
                                     {
-                                        imagens.nome ?
+                                        imagens.nome ? 
                                             <>
                                                 <Text
                                                     style={{ position: 'absolute', bottom: "23%", left: 20, color: "#ffff", fontSize: 16, fontWeight: "700" }}>Mix de {imagens.nome}
@@ -39,9 +39,7 @@ const Container = (props) => {
                         )
                     })
                 }
-
             </ScrollView>
-
         </SafeAreaView>
 
     );

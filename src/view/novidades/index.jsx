@@ -67,8 +67,12 @@ const Novidades = () => {
                     <Text style={{ color: "#ffff", fontSize: 25, fontWeight: "800" }}>Novidades</Text>
                     <Text style={{ color: "#ffff", fontSize: 12 }}>Os últimos lançamentos dos artistas, podcasts e programas...</Text>
                     <View style={{ display: 'flex', flexDirection: "row", marginTop: 10 }}>
-                        <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 20 }}>Músicas</Text>
-                        <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500" }}>Podcasts e programas</Text>
+                        <TouchableOpacity onPress={() => console.log("teste")}>
+                            <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 10 }}>Músicas</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => console.log("teste")}>
+                            <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500" }}>Podcasts e programas</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -76,7 +80,7 @@ const Novidades = () => {
                 {
                     novidades.map((data) => {
                         return (
-                            <View key={data.nome} style={{ borderWidth: 1, borderBottomColor: "#a09c9c9e" }}>
+                            <View key={data.nome} style={{ borderWidth: 1, borderBottomColor: "#202020" }}>
 
                                 <TouchableOpacity onPress={() => console.log("teste")} style={{ display: 'flex', flexDirection: 'row', marginBottom: 20, marginTop: 20 }}>
 

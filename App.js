@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 import Home from './src/home';
 import Novidades from './src/view/novidades';
+import Recente from './src/view/recente';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function MyStack() {
     >
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Novidades" component={Novidades} />
+      <Stack.Screen name="Recente" component={Recente} />
     </Stack.Navigator>
   );
 }

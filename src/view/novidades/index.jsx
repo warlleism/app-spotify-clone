@@ -11,42 +11,49 @@ const Novidades = () => {
 
     const novidades = [
         {
+            id: 1,
             img: require("../../../imagens/novidades/megadeth-soldir-on.jpg"),
             dsc: "Soldier On! Night Stalkers / We`ll Be Back",
             nome: "Megadeth",
             tipo: "Single"
         },
         {
+            id: 2,
             img: require("../../../imagens/novidades/hammersmith-scorpions.png"),
             dsc: "Hammersmith (UK Bonus Track)",
             nome: "Scorpions",
             tipo: "Single"
         },
         {
+            id: 3,
             img: require("../../../imagens/novidades/oln-goes-2000s.jpg"),
             dsc: "OLN Goes 2000's",
             nome: "Our Last Night",
             tipo: "Single"
         },
         {
+            id: 4,
             img: require("../../../imagens/novidades/dream-theater-lost-not-forgotten-archives.png"),
             dsc: "Lost not Forgotten Archives: Live in Berlin (2029)",
             nome: "Dream Theater",
             tipo: "Álbum"
         },
         {
+            id: 5,
             img: require("../../../imagens/novidades/slunghter-to-prevail-1984.png"),
             dsc: "1984",
             nome: "Slunghter to Prevail",
             tipo: "Single"
         },
         {
+            id: 6,
             img: require("../../../imagens/novidades/miss-may-i-free-fall.png"),
             dsc: "Free fall",
             nome: "Mis May i",
             tipo: "Single"
         },
         {
+            id: 7,
             img: require("../../../imagens/novidades/slipknot-yen.png"),
             dsc: "Yen",
             nome: "Slipknot",

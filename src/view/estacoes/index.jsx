@@ -1,10 +1,10 @@
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import Container from "../../../components";
 
 const Estacoes = () => {
 
     const estacoesRecomentadas = [
         {
+            id: 1,
             img: require("../../../imagens/memphismayfire/memphismayfire.jpg"),
             nome: "Memphis May Fire",
             dsc: "Crown the Empire, Inertia, Of Mice & Men e mais...",
@@ -12,18 +12,21 @@ const Estacoes = () => {
 
         },
         {
+            id: 2,
             img: require("../../../imagens/metallica/metallica.jpg"),
             nome: "Metallica",
             dsc: "Rammstein, Slayer, Megadeth e mais...",
             borderColor: "#ffff"
         },
         {
+            id: 3,
             img: require("../../../imagens/slipknot/Slipnkot.jpg"),
             nome: "Slipknot",
             dsc: "Korn, System of a Down, Linkin Park e mais...",
             borderColor: "#DD614A"
         },
         {
+            id: 4,
             img: require("../../../imagens/inertia/inertia.png"),
             nome: "Inertia",
             dsc: "Polaris, Parkway Drive, Architects, Unearth e mais...",
@@ -31,12 +34,14 @@ const Estacoes = () => {
 
         },
         {
+            id: 5,
             img: require("../../../imagens/periphery/periphery.png"),
             nome: "Periphery",
             dsc: "Persofone, Dream Theater, Born Of Osiris e mais...",
             borderColor: "#73A580"
         },
         {
+            id: 6,
             img: require("../../../imagens/trivium/trivium.png"),
             nome: "Trivium",
             dsc: "Lamb Of God, Arch Enemy, Disturbed e mais...",

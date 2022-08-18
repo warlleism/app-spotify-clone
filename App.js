@@ -1,6 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'react-native';
 import Home from './src/home';
 import Novidades from './src/view/novidades';
 import Recente from './src/view/recente';

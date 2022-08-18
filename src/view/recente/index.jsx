@@ -11,42 +11,49 @@ const Recente = () => {
 
     const novidades = [
         {
+            id: 1,
             img: require("../../../imagens/periphery/Peripheryi.jpg"),
             dsc: "Periphery I",
             nome: "Periphery",
             musica: "Ligth",
         },
         {
+            id: 2,
             img: require("../../../imagens/periphery/Peripheryiii.jpg"),
             dsc: "Periphery III : Select Difficulty",
             nome: "Periphery",
             musica: "The Price is Wrong",
         },
         {
+            id: 3,
             img: require("../../../imagens/periphery/Peripheryii.jpg"),
             dsc: "Periphery II: This Time It's Personal",
             nome: "Periphery",
             musica: "MAKE TOTAL DESTROY",
         },
         {
+            id: 4,
             img: require("../../../imagens/novidades/dream-theater-lost-not-forgotten-archives.png"),
             dsc: "Lost not Forgotten Archives: Live in Berlin (2029)",
             nome: "Dream Theater",
             musica: "The Best Of Times",
         },
         {
+            id: 5,
             img: require("../../../imagens/novidades/slunghter-to-prevail-1984.png"),
             dsc: "1984",
             nome: "Slunghter to Prevail",
             musica: "DEMOLISHER",
         },
         {
+            id: 6,
             img: require("../../../imagens/novidades/miss-may-i-free-fall.png"),
             dsc: "Free fall",
             nome: "Mis May i",
             musica: "Free fall"
         },
         {
+            id: 7,
             img: require("../../../imagens/novidades/slipknot-yen.png"),
             dsc: "Yen",
             nome: "Slipknot",
@@ -71,7 +78,7 @@ const Recente = () => {
                                 <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 7 }}>Podcasts e programas</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => console.log("Teste")}>
-                                <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 7}}>Playlists</Text>
+                                <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 7 }}>Playlists</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => console.log("Teste")}>
                                 <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 7 }}>Álbuns</Text>
@@ -86,8 +93,8 @@ const Recente = () => {
                 {
                     novidades.map((data) => {
                         return (
-                            <>
-                                <View key={data.musica}>
+                            <View key={data.id}>
+                                <View>
                                     <TouchableOpacity onPress={() => console.log("teste")} style={{ display: 'flex', flexDirection: 'row', marginTop: 20 }}>
                                         <View style={{ marginLeft: 15, marginBottom: 10 }}>
                                             <Image source={data.img} style={{ width: 90, height: 90 }} />
@@ -116,7 +123,7 @@ const Recente = () => {
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                 </View>
-                            </>
+                            </View>
                         )
                     })
                 }

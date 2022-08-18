@@ -5,8 +5,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
 
 export default function Navegacao(props) {
+
     const navigation = useNavigation()
     const { width } = Dimensions.get("window")
+    
     return (
         <>
             <LinearGradient style={{ position: "absolute", width: width }} end={{ x: props.x ? props.x : 0.3, y: 0.2 }} colors={["#191c21", 'black']}>

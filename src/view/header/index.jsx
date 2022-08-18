@@ -10,43 +10,80 @@ const Header = (props) => {
 
     const tocadasRecentemente = [
         {
+            id: 1,
             img: require("../../../imagens/periphery/Peripheryi.jpg"),
-            dsc: "Periphery I",
-            color: "#092f3f99"
+            album: "Periphery I",
+            nome: "Periphery",
+            color: "#0a516e",
+            data: "2012"
         },
         {
+            id: 2,
             img: require("../../../imagens/slipknot/iowa.jpg"),
-            dsc: "Iowa",
-            color: "#09093f99"
+            album: "Iowa",
+            nome: "Slipknot",
+            color: "#222274",
+            data: "2012"
         },
         {
+            id: 3,
             img: require("../../../imagens/periphery/Peripheryii.jpg"),
-            dsc: "Periphery II",
-            color: "#7212129e"
+            album: "Periphery II",
+            nome: "Periphery",
+            color: "#551919",
+            data: "2012"
         },
         {
+            id: 4,
             img: require("../../../imagens/periphery/Peripheryiii.jpg"),
-            dsc: "Periphery III",
-            color: "#55540c9e"
+            album: "Periphery III",
+            nome: "Periphery",
+            color: "#ab833a",
+            data: "2012"
         },
         {
+            id: 5,
             img: require("../../../imagens/gorija/from-mars-to-sirius.jpg"),
-            dsc: "From Mars To Sirius",
-            color: "#e9e3dd9e"
+            album: "From Mars To Sirius",
+            nome: "Gojira",
+            color: "#b7b2ac",
+            data: "2012"
         },
         {
+            id: 6,
             img: require("../../../imagens/periphery/Peripheryiv.jpg"),
-            dsc: "Periphery IV",
-            color: "#606060"
+            album: "Periphery IV",
+            nome: "Periphery",
+            color: "#606060",
+            data: "2012"
         },
         {
+            id: 7,
             img: require("../../../imagens/polaris/the-death-of-me.jpg"),
-            dsc: "The Death Of Me",
-            color: "#36688fcc"
-        },
+            album: "The Death Of Me",
+            nome: "Polaris",
+            color: "#36688f",
+            data: "2012"
+        }
     ]
+
+    const PegarDados = (data) => {
+        props.color(data.color)
+        props.data([{
+            id: data.id,
+            img: data.img,
+            album: data.album,
+            color: data.color,
+            data: data.data,
+            nome: data.nome
+        }])
+        props.animacao()
+    }
+
+
     return (
         <SafeAreaView style={{ width: "100%" }}>
+
             <View style={{ marginTop: 50, display: 'flex', flexDirection: "row", justifyContent: "space-between", height: 100, alignItems: 'center' }}>
                 <View style={{ width: "65%" }}>
                     <Text style={{ textAlign: 'center', color: "#ffff", fontSize: 23, fontWeight: "900" }}>Tocados recentem...</Text>
@@ -68,16 +105,17 @@ const Header = (props) => {
                 {
                     tocadasRecentemente.map((data) => {
                         return (
-                            <TouchableOpacity onPress={() => props.color(data.color)} key={data.dsc} style={{ width: 130, height: 180, marginLeft: 10, marginRight: 10 }}>
-                                <Image source={data.img} style={{ width: "100%", height: 130 }} />
-                                <Text style={{ color: "#ffff", fontWeight: "800", marginTop: 6 }}>{data.dsc}</Text>
-                            </TouchableOpacity>
+                            <>
+                                <TouchableOpacity onPress={() => PegarDados(data)} key={data.id} style={{ width: 130, height: 180, marginLeft: 10, marginRight: 10 }}>
+                                    <Image source={data.img} style={{ width: "100%", height: 130 }} />
+                                    <Text style={{ color: "#ffff", fontWeight: "800", marginTop: 6 }}>{data.album}</Text>
+                                </TouchableOpacity>
+                            </>
                         )
                     })
                 }
 
             </ScrollView>
-
         </SafeAreaView>
 
     );

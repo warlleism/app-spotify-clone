@@ -14,37 +14,43 @@ const Novidades = () => {
             img: require("../../../imagens/novidades/megadeth-soldir-on.jpg"),
             dsc: "Soldier On! Night Stalkers / We`ll Be Back",
             nome: "Megadeth",
+            tipo: "Single"
         },
         {
-            img: require("../../../imagens/alterbridge/alter-bridge.jpg"),
-            dsc: "Trivium, Breaking Benjamin, Seether e mais",
-            nome: "Alter Bridge",
+            img: require("../../../imagens/novidades/hammersmith-scorpions.png"),
+            dsc: "Hammersmith (UK Bonus Track)",
+            nome: "Scorpions",
+            tipo: "Single"
         },
         {
-            img: require("../../../imagens/ironmainden/Iron-maiden.jpg"),
-            dsc: "Helloween, Angra, Kamelot, DragonForce e mais",
-            nome: "Iron Maiden",
+            img: require("../../../imagens/novidades/oln-goes-2000s.jpg"),
+            dsc: "OLN Goes 2000's",
+            nome: "Our Last Night",
+            tipo: "Single"
         },
         {
-            img: require("../../../imagens/nigthwish/nigthwish.jpg"),
-            dsc: "Epica, Rhapsod, Haggard, Symphony X e mais",
-            nome: "Nigthwish",
-
+            img: require("../../../imagens/novidades/dream-theater-lost-not-forgotten-archives.png"),
+            dsc: "Lost not Forgotten Archives: Live in Berlin (2029)",
+            nome: "Dream Theater",
+            tipo: "Álbum"
         },
         {
-            img: require("../../../imagens/killswitchengage/killswitch-engage.jpg"),
-            dsc: "Memphis may fire, Bring Me the Horizon, Architects e mais",
-            nome: "Killswitch Engage",
+            img: require("../../../imagens/novidades/slunghter-to-prevail-1984.png"),
+            dsc: "1984",
+            nome: "Slunghter to Prevail",
+            tipo: "Single"
         },
         {
-            img: require("../../../imagens/lornashore/lorna-shore.jpg"),
-            dsc: "Suicide Silence, Chelsea Grin, Slaughter to Prevail e mais",
-            nome: "Lorna Shore",
+            img: require("../../../imagens/novidades/miss-may-i-free-fall.png"),
+            dsc: "Free fall",
+            nome: "Mis May i",
+            tipo: "Single"
         },
         {
-            img: require("../../../imagens/megadeth/megadeth.jpg"),
-            dsc: "Metallica, Slayer, Testament e mais",
-            nome: "Born of osiris",
+            img: require("../../../imagens/novidades/slipknot-yen.png"),
+            dsc: "Yen",
+            nome: "Slipknot",
+            tipo: "Single"
         },
     ]
     return (
@@ -76,7 +82,7 @@ const Novidades = () => {
 
                                     <View style={{ marginLeft: 15, marginBottom: 10 }}>
                                         <Image source={data.img} style={{ width: 90, height: 90, marginRight: 10 }} />
-                                        <Text style={{ color: "#ffff", fontSize: 10, marginTop: 5 }}>Single</Text>
+                                        <Text style={{ color: "#ffff", fontSize: 10, marginTop: 5 }}>{data.tipo}</Text>
                                     </View>
 
                                     <View>
@@ -95,7 +101,7 @@ const Novidades = () => {
                                         </TouchableOpacity>
 
                                         <TouchableOpacity onPress={() => console.log("teste")}>
-                                            <Text style={{ color: "#ffff", fontSize: 23 }}>︙</Text>
+                                            <Text style={{ color: "#ffff", fontSize: 23, marginLeft: 20 }}>︙</Text>
                                         </TouchableOpacity>
 
                                     </View>

@@ -36,7 +36,6 @@ const Feito = () => {
             dsc: "Slipknot, Trivium, As I Lay Dying e mais",
             borderColor: "#F4A698"
         },
-
     ]
 
     return (

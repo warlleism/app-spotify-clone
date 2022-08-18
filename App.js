@@ -1,35 +1,28 @@
-import { Dimensions, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useState } from 'react';
-import Header from './src/view/header';
-import Mixes from './src/view/mixes';
-import Feito from './src/view/feito';
-import Estacoes from './src/view/estacoes';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'react-native';
+import Home from './src/home';
+import Novidades from './src/view/novidades';
 
-const { height } = Dimensions.get("window")
+const Stack = createStackNavigator();
 
-export default function App() {
-
-  const [color, setColor] = useState("")
-
-  const GetColor = (value) => {
-    setColor(value)
-  }
-
+function MyStack() {
   return (
-    <SafeAreaView>
-      <LinearGradient
-        end={{ x: 0.3, y: 0.2 }}
-        colors={[color == "" ? "#1f232aeb" : color, 'black']}
-      >
-        <ScrollView>
-          <Header color={GetColor} />
-          <Mixes />
-          <Feito />
-          <Estacoes />
-        </ScrollView>
-      </LinearGradient>
-    </SafeAreaView>
+    <Stack.Navigator
+      screenOptions={{
+        headerMode: 'none',
+      }}
+    >
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Novidades" component={Novidades} />
+    </Stack.Navigator>
   );
 }
 
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  );
+}

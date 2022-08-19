@@ -1,14 +1,12 @@
 import { Animated, BackHandler, Dimensions, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from '../view/header';
 import Mixes from '../view/mixes';
 import Feito from '../view/feito';
 import Estacoes from '../view/estacoes';
 import Play from '../view/play';
-
-const { height } = Dimensions.get("window")
 
 const Home = () => {
 
@@ -19,35 +17,14 @@ const Home = () => {
     const [posicao] = useState(new Animated.Value(500))
 
     function Animacao() {
-
         setStatus(true)
         setDataStatus(false)
 
-        setTimeout(() => {
-            Animated.timing(
-                posicao,
-                {
-                    toValue: 0,
-                    duration: 300,
-                    useNativeDriver: true
-                },
-            ).start()
-        }, 600)
     }
 
     const EsconderConteudo = () => {
-
         setDataStatus(true)
         setStatus(false)
-
-        Animated.timing(
-            posicao,
-            {
-                toValue: 500,
-                duration: 300,
-                useNativeDriver: true
-            },
-        ).start()
     }
 
     const GetColor = (value) => {
@@ -58,9 +35,6 @@ const Home = () => {
         setData(value)
     }
 
-
-
-
     return (
         <SafeAreaView>
             <LinearGradient
@@ -68,28 +42,24 @@ const Home = () => {
                 colors={[color == "" ? "#1f232aeb" : color, 'black']}
             >
                 <ScrollView>
-                    {
-                        dataStatus &&
-                        (
-                            <>
-                                <Header color={GetColor} data={GetData} animacao={Animacao} />
-                                <Mixes />
-                                <Feito />
-                                <Estacoes />
-                            </>
-                        )
-                    }
-                    {
-                        status &&
-                        (
-                            <View>
-                                <Animated.View style={[{ marginBottom: 40, transform: [{ translateX: posicao }] }]}>
-                                    <Play dados={data} color={color} status={EsconderConteudo} />
-                                </Animated.View>
-                            </View>
-                        )
+
+                    {dataStatus &&
+                        (<>
+                            <Header color={GetColor} data={GetData} animacao={Animacao} />
+                            <Mixes />
+                            <Feito />
+                            <Estacoes />
+                        </>)
                     }
                 </ScrollView>
+                {status &&
+                    (<View>
+                        <View>
+                            <Play dados={data} color={color} status={EsconderConteudo} />
+                        </View>
+                    </View>)
+                }
+
             </LinearGradient>
             <StatusBar style="light" />
         </SafeAreaView>

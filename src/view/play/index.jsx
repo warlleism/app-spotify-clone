@@ -1,8 +1,9 @@
 import { BackHandler, Dimensions, Image, ScrollView, Text, TouchableOpacity, View, Alert } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { LinearGradient } from 'expo-linear-gradient';
 import IconAntDesign from "react-native-vector-icons/AntDesign";
 import IconRepeat from "react-native-vector-icons/Feather";
+import Application from "../../../Application";
 
 const { width } = Dimensions.get("window")
 
@@ -23,9 +24,6 @@ const Play = (props) => {
         return () => backHandler.remove();
 
     }, []);
-
-
-
 
     return (
         <View>
@@ -48,17 +46,12 @@ const Play = (props) => {
                                             <Text style={{ color: "#ffff", marginTop: 8 }}>Álbum  • {data?.data}</Text>
                                         </View>
 
-                                        <View style={{ marginTop: 10, alignItems: "center", padding: 5, display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                                        <View style={{alignItems: "center", padding: 5, display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                                             <View style={{ display: "flex", flexDirection: "row" }}>
-                                                <TouchableOpacity onPress={() => console.log("teste")}>
-                                                    <IconAntDesign name="hearto" size={29} style={{ marginRight: 10, color: "#ffff" }} />
-                                                </TouchableOpacity>
-                                                <TouchableOpacity onPress={() => console.log("teste")}>
-                                                    <Text style={{ color: "#ffff", fontSize: 23, marginRight: 10 }}>︙</Text>
-                                                </TouchableOpacity>
+                                                <Application />
                                             </View>
 
-                                            <View style={{ alignItems: "center", display: "flex", flexDirection: "row" }}>
+                                            <View style={{ alignItems: "center", display: "flex", flexDirection: "row", marginRight: 20 }}>
                                                 <TouchableOpacity onPress={() => console.log("teste")}>
                                                     <IconRepeat name="repeat" size={29} style={{ marginRight: 10, color: "#ffff" }} />
                                                 </TouchableOpacity>

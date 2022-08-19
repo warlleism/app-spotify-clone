@@ -1,14 +1,30 @@
-import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { BackHandler, Dimensions, Image, ScrollView, Text, TouchableOpacity, View, Alert } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import IconEvilIcons from "react-native-vector-icons/EvilIcons";
+import { useEffect } from "react";
 
 const { height } = Dimensions.get("window")
 const { width } = Dimensions.get("window")
 
+
 const Play = (props) => {
 
+    useEffect(() => {
+        const backAction = () => {
+            props.status()
+            return true;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            backAction
+        );
+
+        return () => backHandler.remove();
+    }, []);
+
     return (
-        <View style={{ position: "relative" }}>
+        <View>
             <ScrollView>
                 <LinearGradient style={{ width: width, height: height + 100, padding: 20 }} end={{ x: 0, y: 0.2 }} colors={[props.color, 'black']} >
                     <View>
@@ -27,7 +43,17 @@ const Play = (props) => {
                                             </View>
                                             <Text style={{ color: "#ffff", marginTop: 8 }}>Álbum  • {data?.data}</Text>
                                         </View>
-
+                                        {data.musicas.map((dados) => {
+                                            return (
+                                                <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
+                                                    <View>
+                                                        <Text style={{ color: "#ffff", fontSize: 18 }}>{dados.musica}</Text>
+                                                        <Text style={{ color: "#ffff", fontSize: 13 }}>{data.nome}</Text>
+                                                    </View>
+                                                    <Text style={{ color: "#ffff", fontSize: 23, marginRight: 10 }}>︙</Text>
+                                                </View>
+                                            )
+                                        })}
                                     </View>
                                 )
                             })

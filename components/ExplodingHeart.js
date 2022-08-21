@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import LottieView from 'lottie-react-native'
 import { TouchableOpacity } from 'react-native'
 
-const ExplodingHeart = ({ onChange, status, width, containerStyle }) => {
+const ExplodingHeart = ({ onChange, status }) => {
+
 	const [isFavorite, setFavorite] = useState(false)
 	const [animation, setAnimation] = useState(null)
 
@@ -14,10 +15,6 @@ const ExplodingHeart = ({ onChange, status, width, containerStyle }) => {
 		}
 	}, [isFavorite])
 
-	useEffect(() => {
-		setFavorite(status)
-	}, [status])
-
 	const toggleStatus = () => {
 		if (onChange) {
 			onChange(!isFavorite)
@@ -28,7 +25,7 @@ const ExplodingHeart = ({ onChange, status, width, containerStyle }) => {
 	return (
 		<TouchableOpacity onPress={() => toggleStatus()}>
 			<LottieView
-				style={{ width: 80 }}
+				style={{ width: 100, height: 60 }}
 				speed={1.5}
 				autoPlay={false}
 				loop={false}

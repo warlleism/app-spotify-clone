@@ -46,9 +46,13 @@ const Play = (props) => {
                                             <Text style={{ color: "#ffff", marginTop: 8 }}>Álbum  • {data?.data}</Text>
                                         </View>
 
-                                        <View style={{alignItems: "center", padding: 5, display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                                            <View style={{ display: "flex", flexDirection: "row" }}>
+                                        <View style={{ alignItems: "center", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+
+                                            <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
                                                 <Application />
+                                                <TouchableOpacity onPress={() => console.log("teste")}>
+                                                    <Text style={{ color: "#ffff", fontSize: 23, marginRight: 10 }}>︙</Text>
+                                                </TouchableOpacity>
                                             </View>
 
                                             <View style={{ alignItems: "center", display: "flex", flexDirection: "row", marginRight: 20 }}>
@@ -64,7 +68,7 @@ const Play = (props) => {
 
                                         {data.musicas.map((dados) => {
                                             return (
-                                                <View key={dados.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
+                                                <View key={dados.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
                                                     <View>
                                                         <TouchableOpacity onPress={() => console.log("teste")}>
                                                             <Text style={{ color: "#ffff", fontSize: 18 }}>{dados.musica}</Text>

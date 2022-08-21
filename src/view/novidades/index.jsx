@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import Navegacao from '../../../components/navegacao';
 import IconAntDesign from "react-native-vector-icons/AntDesign";
+import Application from '../../../Application';
 
 const { height } = Dimensions.get("window")
 
@@ -103,18 +104,16 @@ const Novidades = () => {
 
                                 </TouchableOpacity>
 
-                                <View style={{ marginLeft: 20, marginRight: 20, marginBottom: 10, display: 'flex', flexDirection: "row", justifyContent: 'space-between' }}>
+                                <View style={{ alignItems: 'center', marginLeft: 20, marginRight: 20, marginBottom: 10, display: 'flex', flexDirection: "row", justifyContent: 'space-between' }}>
 
-                                    <View style={{ display: 'flex', flexDirection: "row" }} >
-
+                                    <View style={{ marginTop: -10, display: 'flex', flexDirection: "row", alignItems: 'center' }} >
                                         <TouchableOpacity onPress={() => console.log("teste")}>
-                                            <IconAntDesign size={28} name='hearto' style={{ color: "#ffff" }} />
+                                            <Application />
                                         </TouchableOpacity>
 
                                         <TouchableOpacity onPress={() => console.log("teste")}>
                                             <Text style={{ color: "#ffff", fontSize: 23, marginLeft: 20 }}>︙</Text>
                                         </TouchableOpacity>
-
                                     </View>
 
                                     <TouchableOpacity onPress={() => console.log("teste")}>

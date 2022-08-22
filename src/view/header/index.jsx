@@ -196,7 +196,7 @@ const Header = (props) => {
                         <IconMaterialCommunityIcons name="progress-clock" size={32} style={{ color: '#ffff' }} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => console.log("teste")}>
+                    <TouchableOpacity onPress={() => navigation.navigate("Configuracoes")}>
                         <IconEvilIcons name="gear" size={32} style={{ color: '#ffff' }} />
                     </TouchableOpacity>
 

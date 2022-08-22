@@ -1,33 +1,32 @@
-import { Animated, SafeAreaView, ScrollView, Image, Text, View, Dimensions } from 'react-native';
+import { Animated, SafeAreaView, ScrollView, Image, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import IconEntypo from "react-native-vector-icons/Entypo";
+import IconIonicons from "react-native-vector-icons/Ionicons";
 import Header from '../view/header';
 import Mixes from '../view/mixes';
 import Feito from '../view/feito';
 import Estacoes from '../view/estacoes';
 import Play from '../view/play';
 
-const { width } = Dimensions.get("window")
-const { height } = Dimensions.get("window")
-
 const Home = () => {
 
     const [color, setColor] = useState("")
     const [data, setData] = useState([])
+    const [play, setPlay] = useState(true)
     const [status, setStatus] = useState(false)
     const [dataStatus, setDataStatus] = useState(true)
     const [musicas, setMusicas] = useState()
-    const [posicao, setPosicao] = useState(new Animated.Value(0))
+    const [posicao] = useState(new Animated.Value(1200))
+    const [heart, setHeart] = useState(true)
+
 
     function Animacao() {
         setStatus(true)
         setDataStatus(false)
 
     }
-
-
 
     function AnimacaoPlay() {
 
@@ -54,21 +53,15 @@ const Home = () => {
         setData(value)
     }
 
-    const getMusicas = (nome, musica, imagem) => {
-        setMusicas(nome, musica, imagem)
+    const getMusicas = (imagem, nome, musica, id, color) => {
+        setMusicas(imagem, nome, musica, id, color)
+        setPlay(false)
         AnimacaoPlay()
     }
 
-    useEffect(() => {
-        console.log(musicas)
-    }, [musicas])
     return (
         <SafeAreaView>
-            <LinearGradient
-                end={{ x: 0.3, y: 0.2 }}
-                colors={[color == "" ? "#1f232aeb" : color, 'black']}
-            >
-
+            <LinearGradient end={{ x: 0.3, y: 0.2 }} colors={[color == "" ? "#1f232aeb" : color, 'black']}>
                 <ScrollView>
                     {dataStatus &&
                         (<>
@@ -95,16 +88,20 @@ const Home = () => {
                                     <View>
                                         <Image source={data?.img} style={{ width: 40, height: 40, alignSelf: 'center' }} />
                                     </View>
-                                    <ScrollView horizontal showsHorizontalScrollIndicator={false} pagingEnabled={true} style={{ display: "flex", marginLeft: 5, marginRight: 5 }}>
-                                        <View style={{ width: 214, marginRight: 2 }}>
-                                            <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.musica}</Text>
-                                            <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.nome}</Text>
-                                        </View>
-                                    </ScrollView>
+                                    <View style={{ width: "60%" }}>
+                                        <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.musica}</Text>
+                                        <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.nome}</Text>
+                                    </View>
                                     <View style={{ display: "flex", flexDirection: "row" }}>
-                                        <MaterialCommunityIcons name="cellphone-sound" size={30} style={{ color: "#ffff", marginRight: 8 }} />
-                                        <MaterialCommunityIcons name="cards-heart-outline" size={30} style={{ color: "#ffff", marginRight: 8 }} />
-                                        <IconEntypo name="controller-play" size={30} style={{ color: "#ffff" }} />
+                                        <TouchableOpacity onPress={() => console.log("teste")}>
+                                            <MaterialCommunityIcons name="cellphone-sound" size={30} style={{ color: "#ffff", marginRight: 8 }} />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity onPress={() => setHeart(!heart)}>
+                                            {heart ? <MaterialCommunityIcons name="cards-heart-outline" size={30} style={{ color: "#ffff", marginRight: 8 }} /> : <MaterialCommunityIcons name="heart" size={30} style={{ color: "#30d045", marginRight: 8 }} />}
+                                        </TouchableOpacity>
+                                        <TouchableOpacity onPress={() => console.log("teste")}>
+                                            {play ? <IconEntypo onPress={() => setPlay(false)} name="controller-play" size={30} style={{ color: "#ffff", height: 32 }} /> : <IconIonicons onPress={() => setPlay(true)} name="pause-sharp" size={30} style={{ color: "#ffff", height: 32 }} />}
+                                        </TouchableOpacity>
                                     </View>
                                 </Animated.View>
                             )

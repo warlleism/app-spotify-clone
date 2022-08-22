@@ -6,13 +6,8 @@ import IconRepeat from "react-native-vector-icons/Feather";
 import Application from "../../../Application";
 
 const { width } = Dimensions.get("window")
-const { height } = Dimensions.get("window")
 
 const Play = (props) => {
-
-    const [posicao, setPosicao] = useState(new Animated.Value(0))
-
-    const [musicas, setMusicas] = useState(props?.dados)
 
     useEffect(() => {
 
@@ -30,17 +25,13 @@ const Play = (props) => {
 
     }, []);
 
-
-    function Animacao(imagem, nome, musica, id, color) {
+    function EscolherMusica(imagem, nome, musica, id, color) {
         props.musicas([{ img: imagem, nome: nome, musica: musica, id: id, color: color }])
     }
 
-
-
-
     return (
         <View>
-            <ScrollView>
+            <ScrollView style={{marginBottom: 20}}>
                 <LinearGradient style={{ width: width, padding: 20 }} end={{ x: 0, y: 0.2 }} colors={[props.color, 'black']} >
                     <View>
                         {
@@ -83,7 +74,7 @@ const Play = (props) => {
                                             return (
                                                 <View key={dados?.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
                                                     <View>
-                                                        <TouchableOpacity onPress={() => Animacao(data?.img, data?.nome, dados?.musica, id?.id, data?.color)}>
+                                                        <TouchableOpacity onPress={() => EscolherMusica(data?.img, data?.nome, dados?.musica, data?.id, data?.color)}>
                                                             <Text style={{ color: "#ffff", fontSize: 18 }}>{dados?.musica}</Text>
                                                             <Text style={{ color: "#ffff", fontSize: 13 }}>{data?.nome}</Text>
                                                         </TouchableOpacity>

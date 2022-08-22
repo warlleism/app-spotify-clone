@@ -1,7 +1,7 @@
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
-import { Dimensions, Image, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
-import Navegacao from '../../../components/navegacao';
 import IconAntDesign from "react-native-vector-icons/AntDesign";
+import Navegacao from '../../../components/navegacao';
 import Application from '../../../Application';
 
 const { height } = Dimensions.get("window")
@@ -63,28 +63,36 @@ const Novidades = () => {
     ]
     return (
         <>
+
             <View style={{ height: 90 }}>
                 <Navegacao route={"Home"} icon={"left"} color={"#ffff"} x={altura >= 84 ? 2 : 0.3} />
             </View>
+
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 scrollEnabled
                 onScroll={(event) => setAltura(parseInt(event.nativeEvent.contentOffset.y))}
                 style={{ height: height * 2, backgroundColor: "black" }}>
+
                 <View style={{ padding: 20 }}>
+
                     <Text style={{ color: "#ffff", fontSize: 25, fontWeight: "800" }}>Novidades</Text>
                     <Text style={{ color: "#ffff", fontSize: 12 }}>Os últimos lançamentos dos artistas, podcasts e programas...</Text>
                     <View style={{ display: 'flex', flexDirection: "row", marginTop: 10 }}>
+
                         <TouchableOpacity onPress={() => console.log("teste")}>
                             <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500", marginRight: 10 }}>Músicas</Text>
                         </TouchableOpacity>
+
                         <TouchableOpacity onPress={() => console.log("teste")}>
                             <Text style={{ borderWidth: 1, borderColor: "#ffff", borderRadius: 50, paddingHorizontal: 15, paddingVertical: 5, color: "#ffff", fontSize: 13, fontWeight: "500" }}>Podcasts e programas</Text>
                         </TouchableOpacity>
+
                     </View>
                 </View>
 
                 <Text style={{ color: "#ffff", marginLeft: 20, marginBottom: 20, fontSize: 20, fontWeight: "600" }}>Antigos</Text>
+
                 {
                     novidades.map((data) => {
                         return (
@@ -107,6 +115,7 @@ const Novidades = () => {
                                 <View style={{ alignItems: 'center', marginLeft: 20, marginRight: 20, marginBottom: 10, display: 'flex', flexDirection: "row", justifyContent: 'space-between' }}>
 
                                     <View style={{ marginTop: -10, display: 'flex', flexDirection: "row", alignItems: 'center' }} >
+
                                         <TouchableOpacity onPress={() => console.log("teste")}>
                                             <Application />
                                         </TouchableOpacity>
@@ -114,6 +123,7 @@ const Novidades = () => {
                                         <TouchableOpacity onPress={() => console.log("teste")}>
                                             <Text style={{ color: "#ffff", fontSize: 23, marginLeft: 20 }}>︙</Text>
                                         </TouchableOpacity>
+
                                     </View>
 
                                     <TouchableOpacity onPress={() => console.log("teste")}>

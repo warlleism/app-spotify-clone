@@ -53,20 +53,25 @@ const Estacoes = () => {
     return (
         <>
             <SafeAreaView style={{ width: "100%" }}>
+
                 <View style={{ display: 'flex', flexDirection: "row", justifyContent: "space-between", height: 100, alignItems: 'center' }}>
                     <Text style={{ textAlign: 'center', color: "#ffff", fontSize: 23, fontWeight: "900", marginLeft: 20 }}>Estações recomendadas</Text>
                 </View>
+
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {
                         estacoesRecomentadas.map((imagens) => {
                             return (
                                 <TouchableOpacity onPress={() => console.log("teste")} key={imagens.dsc} style={{ width: 170, marginLeft: 10, marginRight: 10, position: "relative" }}>
                                     <View style={{ borderBottomColor: "yellow", borderBottomWidth: 4, }}>
+
                                         <Image source={imagens.img} style={{ width: "100%", height: 160, }} />
+
                                         <View style={{ position: "absolute", top: 10, alignSelf: "center" }}>
                                             <Text style={{ textAlign: "center", color: "#ffff", fontWeight: "800", fontSize: 15 }}>{imagens.nome}</Text>
                                             <Text style={{ textAlign: "center", color: "#ffff", fontWeight: "500" }}>Rádio</Text>
                                         </View>
+
                                     </View>
                                     <Text style={{ width: "100%", color: "#a09c9c9e", marginTop: 6, fontSize: 14, fontWeight: "400" }}>{imagens.dsc}</Text>
 
@@ -75,6 +80,7 @@ const Estacoes = () => {
                         })
                     }
                 </ScrollView>
+
             </SafeAreaView>
         </>
     )

@@ -1,6 +1,6 @@
-import { BackHandler, Dimensions, Image, ScrollView, Text, TouchableOpacity, View, Alert, Animated, ImageComponent } from "react-native";
-import { useEffect, useState } from "react";
+import { BackHandler, Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { useEffect } from "react";
 import IconAntDesign from "react-native-vector-icons/AntDesign";
 import IconRepeat from "react-native-vector-icons/Feather";
 import Application from "../../../Application";
@@ -31,41 +31,53 @@ const Play = (props) => {
 
     return (
         <View>
-            <ScrollView style={{marginBottom: 20}}>
+            <ScrollView style={{ marginBottom: 20 }}>
                 <LinearGradient style={{ width: width, padding: 20 }} end={{ x: 0, y: 0.2 }} colors={[props.color, 'black']} >
                     <View>
                         {
                             props?.dados?.map((data) => {
                                 return (
                                     <View key={data?.id}>
+
                                         <View>
                                             <Image source={data?.img} style={{ backfaceVisibility: 0, width: 240, height: 240, alignSelf: 'center', marginTop: 40 }} />
                                         </View>
+
                                         <View>
+
                                             <Text style={{ color: "#ffff", fontSize: 18, fontWeight: "700", marginTop: 8 }}>{data?.album}</Text>
+
                                             <View style={{ display: 'flex', flexDirection: "row", marginTop: 8 }}>
                                                 <Image source={data?.img} style={{ width: 20, height: 20, borderRadius: 20, marginRight: 10 }} />
                                                 <Text style={{ color: "#ffff" }}>{data.nome}</Text>
                                             </View>
+
                                             <Text style={{ color: "#ffff", marginTop: 8 }}>Álbum  • {data?.data}</Text>
+
                                         </View>
 
                                         <View style={{ alignItems: "center", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
 
                                             <View style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+
                                                 <Application />
+
                                                 <TouchableOpacity onPress={() => console.log("teste")}>
                                                     <Text style={{ color: "#ffff", fontSize: 23, marginRight: 10 }}>︙</Text>
                                                 </TouchableOpacity>
+
                                             </View>
 
                                             <View style={{ alignItems: "center", display: "flex", flexDirection: "row", marginRight: 20 }}>
+
                                                 <TouchableOpacity onPress={() => console.log("teste")}>
                                                     <IconRepeat name="repeat" size={29} style={{ marginRight: 10, color: "#ffff" }} />
                                                 </TouchableOpacity>
+
                                                 <TouchableOpacity onPress={() => console.log("teste")}>
                                                     <IconAntDesign name="playcircleo" size={38} style={{ color: props.color }} />
                                                 </TouchableOpacity>
+
                                             </View>
 
                                         </View>
@@ -73,15 +85,18 @@ const Play = (props) => {
                                         {data.musicas.map((dados) => {
                                             return (
                                                 <View key={dados?.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
-                                                    <View>
+
+                                                    <View style={{ width: "90%" }}>
                                                         <TouchableOpacity onPress={() => EscolherMusica(data?.img, data?.nome, dados?.musica, data?.id, data?.color)}>
                                                             <Text style={{ color: "#ffff", fontSize: 18 }}>{dados?.musica}</Text>
                                                             <Text style={{ color: "#ffff", fontSize: 13 }}>{data?.nome}</Text>
                                                         </TouchableOpacity>
                                                     </View>
-                                                    <TouchableOpacity onPress={() => console.log("Teste")}>
+
+                                                    <TouchableOpacity onPress={() => console.log("Teste")} style={{ width: "10%" }}>
                                                         <Text style={{ color: "#ffff", fontSize: 23, marginRight: 10 }}>︙</Text>
                                                     </TouchableOpacity>
+
                                                 </View>
                                             )
                                         })}

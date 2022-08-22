@@ -1,10 +1,8 @@
-import { BackHandler, Dimensions, Image, ScrollView, Text, TouchableOpacity, View, Alert, Animated } from "react-native";
+import { BackHandler, Dimensions, Image, ScrollView, Text, TouchableOpacity, View, Alert, Animated, ImageComponent } from "react-native";
 import { useEffect, useState } from "react";
 import { LinearGradient } from 'expo-linear-gradient';
 import IconAntDesign from "react-native-vector-icons/AntDesign";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import IconRepeat from "react-native-vector-icons/Feather";
-import IconEntypo from "react-native-vector-icons/Entypo";
 import Application from "../../../Application";
 
 const { width } = Dimensions.get("window")
@@ -12,7 +10,7 @@ const { height } = Dimensions.get("window")
 
 const Play = (props) => {
 
-    const [posicao, setPosicao] = useState(new Animated.Value(1200))
+    const [posicao, setPosicao] = useState(new Animated.Value(0))
 
     const [musicas, setMusicas] = useState(props?.dados)
 
@@ -33,20 +31,8 @@ const Play = (props) => {
     }, []);
 
 
-    function Animacao(nome, musica, musicas) {
-
-        const dados = [{ nome: nome, musica: musica }]
-
-        setMusicas(dados)
-
-        Animated.timing(
-            posicao,
-            {
-                toValue: 0,
-                duration: 1000,
-                useNativeDriver: true
-            },
-        ).start();
+    function Animacao(imagem, nome, musica, id, color) {
+        props.musicas([{ img: imagem, nome: nome, musica: musica, id: id, color: color }])
     }
 
 
@@ -54,7 +40,6 @@ const Play = (props) => {
 
     return (
         <View>
-            {console.log(musicas)}
             <ScrollView>
                 <LinearGradient style={{ width: width, padding: 20 }} end={{ x: 0, y: 0.2 }} colors={[props.color, 'black']} >
                     <View>
@@ -96,11 +81,11 @@ const Play = (props) => {
 
                                         {data.musicas.map((dados) => {
                                             return (
-                                                <View key={dados.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
+                                                <View key={dados?.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
                                                     <View>
-                                                        <TouchableOpacity onPress={() => Animacao(data.nome, dados.musica, dados.musica)}>
-                                                            <Text style={{ color: "#ffff", fontSize: 18 }}>{dados.musica}</Text>
-                                                            <Text style={{ color: "#ffff", fontSize: 13 }}>{data.nome}</Text>
+                                                        <TouchableOpacity onPress={() => Animacao(data?.img, data?.nome, dados?.musica, id?.id, data?.color)}>
+                                                            <Text style={{ color: "#ffff", fontSize: 18 }}>{dados?.musica}</Text>
+                                                            <Text style={{ color: "#ffff", fontSize: 13 }}>{data?.nome}</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                     <TouchableOpacity onPress={() => console.log("Teste")}>
@@ -116,40 +101,6 @@ const Play = (props) => {
                     </View>
                 </LinearGradient>
             </ScrollView>
-
-
-            {
-                props?.dados.map((data) => {
-                    return (
-                        <Animated.View key={data.id} style={{ position: "absolute", bottom: 0, transform: [{ translateX: posicao }], display: "flex", flexDirection: "row", alignItems: "center", backgroundColor: data.color, padding: 10, borderRadius: 10 }} >
-                            <View>
-                                <Image source={data?.img} style={{ width: 40, height: 40, alignSelf: 'center' }} />
-                            </View>
-                            <ScrollView horizontal showsHorizontalScrollIndicator={false} pagingEnabled={true} style={{ display: "flex", marginLeft: 5, marginRight: 5 }}>
-                                {musicas.map((dados) => {
-                                    return (
-                                        <View key={dados.musica} style={{ width: 214, marginRight: 2 }}>
-                                            <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{dados.musica}</Text>
-                                            <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data.nome}</Text>
-                                        </View>
-                                    )
-                                })}
-                            </ScrollView>
-                            <View style={{ display: "flex", flexDirection: "row" }}>
-                                <MaterialCommunityIcons name="cellphone-sound" size={30} style={{ color: "#ffff", marginRight: 8 }} />
-                                <MaterialCommunityIcons name="cards-heart-outline" size={30} style={{ color: "#ffff", marginRight: 8 }} />
-                                <IconEntypo name="controller-play" size={30} style={{ color: "#ffff" }} />
-                            </View>
-                        </Animated.View>
-                    )
-                })
-            }
-
-
-
-
-
-
 
             <TouchableOpacity onPress={() => props.status()} style={{ marginTop: 50, position: "absolute" }}>
                 <IconAntDesign name="left" size={20} style={{ textAlign: "center", elevation: 9, backgroundColor: "#7171716e", marginLeft: 10, color: '#ffff', paddingVertical: 10, paddingHorizontal: 11, borderRadius: 50 }} />

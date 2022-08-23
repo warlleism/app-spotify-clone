@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Dimensions, ScrollView, Text, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
 import IconAntDesign from "react-native-vector-icons/AntDesign";
 import Navegacao from '../../../components/navegacao';
 import SwitchButton from '../../../components/switch'
@@ -51,7 +51,7 @@ const Configuracoes = () => {
                     <Text style={{ color: "#ffff", marginBottom: 9, fontWeight: "800" }}>Conta</Text>
 
                     <TouchableOpacity onPress={() => console.log("teste")}>
-                        <Text style={{ color: "#ffff", fontWeight: "600" }}>Plano Premium</Text>
+                        <Text style={style.titulo}>Plano Premium</Text>
                         <Text style={{ color: "#979292f0", fontSize: 12 }}>Veja seu plano</Text>
                     </TouchableOpacity>
 
@@ -60,10 +60,10 @@ const Configuracoes = () => {
                         <Text style={{ color: "#979292f0", fontSize: 12 }}>warlleimartins@hotmail.com</Text>
                     </TouchableOpacity>
 
-                    <View style={{ marginTop: 30 }}>
-                        <Text style={{ color: "#ffff", marginBottom: 9, fontWeight: "800" }}>Economia de dados</Text>
+                    <View style={style.marginTop}>
+                        <Text style={{ color: "#ffff", fontWeight: "800" }}>Economia de dados</Text>
 
-                        <View style={{ display: 'flex', flexDirection: "row", marginTop: 15 }}>
+                        <View style={[style.Container,style.marginTop]}>
 
                             <View style={{ width: "85%" }}>
                                 <Text style={{ color: "#ffff" }}>Qualidade do áudio</Text>
@@ -76,10 +76,10 @@ const Configuracoes = () => {
                         </View>
                     </View>
 
-                    <View style={{ marginTop: 30 }}>
-                        <Text style={{ color: "#ffff", marginBottom: 20, fontWeight: "800" }}>Podcasts em vídeo</Text>
+                    <View style={style.marginTop}>
+                        <Text style={style.contentTexto}>Podcasts em vídeo</Text>
 
-                        <View style={{ display: 'flex', flexDirection: "row", marginBottom: 20 }}>
+                        <View style={[style.Container]}>
                             <View style={{ width: "85%" }}>
                                 <Text style={{ color: "#ffff" }}>Baixar somente o áudio</Text>
                                 <Text style={{ color: "#979292f0" }}>Salve apenas o àudio dos podcasts em vídeo.</Text>
@@ -90,7 +90,7 @@ const Configuracoes = () => {
                             </View>
                         </View>
 
-                        <View style={{ display: 'flex', flexDirection: "row" }}>
+                        <View style={[style.Container]}>
                             <View style={{ width: "85%" }}>
                                 <Text style={{ color: "#ffff", width: "85%" }}>Reproduzir apenas o áudio</Text>
                                 <Text style={{ color: "#979292f0", width: "85%" }}>Curta apenas a áudio dos podcasts em vídeo quando não estiver no WI-Fi.</Text>
@@ -103,19 +103,19 @@ const Configuracoes = () => {
 
                     </View>
 
-                    <View style={{ display: 'flex', flexDirection: "row", alignItems: 'center', marginTop: 13 }}>
+                    <View style={[style.Container, style.marginTop]}>
                         <IconAntDesign name='infocirlceo' size={10} style={{ color: "#ffff", marginRight: 10 }} />
-                        <Text style={{ color: "#979292f0", fontSize: 13 }}>Observações: o vídeo não é reproduzido quando o app Spotify está em segundo plano</Text>
+                        <Text style={style.text}>Observações: o vídeo não é reproduzido quando o app Spotify está em segundo plano</Text>
                     </View>
 
-                    <View style={{ marginTop: 30 }}>
+                    <View style={style.marginTop}>
 
-                        <Text style={{ color: "#ffff", marginBottom: 20, fontWeight: "800" }}>Reprodução</Text>
-                        <Text style={{ color: "#ffff", fontWeight: "600" }}>Modo offline</Text>
+                        <Text style={style.contentTexto}>Reprodução</Text>
+                        <Text style={style.titulo}>Modo offline</Text>
 
-                        <View style={{ display: 'flex', flexDirection: "row", alignItems: 'center' }}>
+                        <View style={style.Container}>
                             <View style={{ width: "85%" }}>
-                                <Text style={{ color: "#979292f0", fontSize: 13 }}>Quando você fica offline, só pode tocar as músicas e podcasts baixados.</Text>
+                                <Text style={style.text}>Quando você fica offline, só pode tocar as músicas e podcasts baixados.</Text>
                             </View>
                             <View style={{ width: "15%" }}>
                                 <SwitchButton />
@@ -124,13 +124,13 @@ const Configuracoes = () => {
 
                     </View>
 
-                    <View style={{ display: 'flex', marginTop: 20 }}>
+                    <View style={style.marginTop}>
 
-                        <Text style={{ color: "#ffff", fontWeight: "600" }}>Transição gradual</Text>
-                        <Text style={{ color: "#979292f0", fontSize: 13 }}>Permite fazer transição gradual de música</Text>
+                        <Text style={style.titulo}>Transição gradual</Text>
+                        <Text style={style.text}>Permite fazer transição gradual de música</Text>
 
                         <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                            <Text style={{ color: "#979292f0", fontSize: 13 }}>Desligado</Text>
+                            <Text style={style.text}>Desligado</Text>
                             <Slider
                                 style={{ width: "80%", height: 40 }}
                                 minimumValue={0}
@@ -138,18 +138,18 @@ const Configuracoes = () => {
                                 minimumTrackTintColor={"#979292f0"}
                                 onValueChange={(value) => setDuracao(value)}
                             />
-                            <Text style={{ color: "#979292f0", fontSize: 13 }}>{Math.round(duracao)}s</Text>
+                            <Text style={style.text}>{Math.round(duracao)}s</Text>
                         </View>
 
                     </View>
 
-                    <View style={{ marginTop: 30 }}>
+                    <View style={style.marginTop}>
 
-                        <Text style={{ color: "#ffff", fontWeight: "600" }}>Sem pause</Text>
+                        <Text style={style.titulo}>Sem pause</Text>
 
-                        <View style={{ display: 'flex', flexDirection: "row", alignItems: 'center' }}>
+                        <View style={style.Container}>
                             <View style={{ width: "85%" }}>
-                                <Text style={{ color: "#979292f0", fontSize: 13 }}>Permite a Reprodução sem pausas</Text>
+                                <Text style={style.text}>Permite a Reprodução sem pausas</Text>
                             </View>
                             <View style={{ width: "15%" }}>
                                 <SwitchButton />
@@ -158,11 +158,11 @@ const Configuracoes = () => {
 
                     </View>
 
-                    <View style={{ marginTop: 30 }}>
+                    <View style={style.marginTop}>
 
                         <Text style={{ color: "#ffff", fontWeight: "800", marginBottom: 20 }}>Qualidade do áudio</Text>
 
-                        <View style={{ display: 'flex', flexDirection: "row", alignItems: 'center' }}>
+                        <View style={style.Container}>
                             <View style={{ width: "60%" }}>
                                 <Text style={{ color: "#ffff", fontSize: 16 }}>Reprodução com Wi-Fi</Text>
                             </View>
@@ -173,13 +173,13 @@ const Configuracoes = () => {
 
                     </View>
 
-                    <View style={{ marginTop: 30 }}>
+                    <View style={style.marginTop}>
 
                         <Text style={{ color: "#ffff", fontSize: 16, width: "55%" }}>Reprodução com dados móveis</Text>
 
-                        <View style={{ display: 'flex', flexDirection: "row", alignItems: 'center' }}>
+                        <View style={style.Container}>
                             <View style={{ width: "60%" }}>
-                                <Text style={{ color: "#979292f0", fontSize: 13 }}>Quanto maior a qualidade do áudio dos streamings, maior será o consumo de dados móveis.</Text>
+                                <Text style={style.text}>Quanto maior a qualidade do áudio dos streamings, maior será o consumo de dados móveis.</Text>
                             </View>
                             <View style={{ width: "40%", marginLeft: 10 }}>
                                 {Select(reproducaoSelecionadaMoveis, setReproducaoSelecionadaMoveis)}
@@ -194,5 +194,26 @@ const Configuracoes = () => {
         </>
     );
 }
+
+
+const style = StyleSheet.create({
+    titulo: {
+        color: "#ffff", fontWeight: "600"
+    },
+    marginTop: {
+        marginTop: 30
+    },
+    Container: {
+        display: 'flex',
+        flexDirection: "row",
+        alignItems: 'center'
+    },
+    text: {
+        color: "#979292f0", fontSize: 13
+    },
+    contentTexto: {
+        color: "#ffff", marginBottom: 20, fontWeight: "800"
+    }
+})
 
 export default Configuracoes;

@@ -5,6 +5,7 @@ import { Dimensions, ScrollView, Text, View } from 'react-native';
 import IconAntDesign from "react-native-vector-icons/AntDesign";
 import Navegacao from '../../../components/navegacao';
 import SwitchButton from '../../../components/switch'
+import Slider from '@react-native-community/slider';
 
 
 const { height } = Dimensions.get("window")
@@ -12,7 +13,7 @@ const { height } = Dimensions.get("window")
 const Configuracoes = () => {
 
     const [altura, setAltura] = useState()
-    const [duracao] = useState()
+    const [duracao, setDuracao] = useState()
 
     const [reproducao] = useState(['Automático', 'Baixa', 'Normal', 'Alta', 'Altíssima'])
     const [reproducaoSelecionadaWifi, setReproducaoSelecionadaWifi] = useState([])
@@ -130,7 +131,13 @@ const Configuracoes = () => {
 
                         <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={{ color: "#979292f0", fontSize: 13 }}>Desligado</Text>
-                            {Select(reproducaoSelecionadaWifi, setReproducaoSelecionadaWifi)}
+                            <Slider
+                                style={{ width: "80%", height: 40 }}
+                                minimumValue={0}
+                                maximumValue={50}
+                                minimumTrackTintColor={"#979292f0"}
+                                onValueChange={(value) => setDuracao(value)}
+                            />
                             <Text style={{ color: "#979292f0", fontSize: 13 }}>{Math.round(duracao)}s</Text>
                         </View>
 

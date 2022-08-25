@@ -87,10 +87,12 @@ const Play = (props) => {
                                                 <View key={dados?.musica} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 20 }}>
 
                                                     <View style={{ width: "90%" }}>
+
                                                         <TouchableOpacity onPress={() => EscolherMusica(data?.img, data?.nome, dados?.musica, data?.id, data?.color)}>
                                                             <Text style={{ color: "#ffff", fontSize: 18 }}>{dados?.musica}</Text>
                                                             <Text style={{ color: "#ffff", fontSize: 13 }}>{data?.nome}</Text>
                                                         </TouchableOpacity>
+
                                                     </View>
 
                                                     <TouchableOpacity onPress={() => console.log("Teste")} style={{ width: "10%" }}>

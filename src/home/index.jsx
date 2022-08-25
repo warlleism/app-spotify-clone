@@ -60,6 +60,54 @@ const Home = () => {
         AnimacaoPlay();
     }
 
+    const PlayControl = () => {
+        return (
+            <View>
+                {
+                    musicas?.map((data) => {
+                        return (
+                            <Animated.View key={data?.id} style={{
+                                position: "absolute",
+                                bottom: 0,
+                                transform: [{ translateX: posicao }],
+                                display: "flex", flexDirection: "row",
+                                alignItems: "center",
+                                backgroundColor: data?.color,
+                                padding: 10,
+                                borderRadius: 10,
+                                width: "100%"
+                            }} >
+
+                                <View>
+                                    <Image source={data?.img} style={{ width: 40, height: 40, alignSelf: 'center' }} />
+                                </View>
+
+                                <View style={{ width: "60%" }}>
+                                    <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.musica}</Text>
+                                    <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.nome}</Text>
+                                </View>
+
+                                <View style={{ display: "flex", flexDirection: "row" }}>
+                                    <TouchableOpacity onPress={() => console.log("teste")}>
+                                        <MaterialCommunityIcons name="cellphone-sound" size={30} style={{ color: "#ffff", marginRight: 8 }} />
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity onPress={() => setHeart(!heart)}>
+                                        {heart ? <MaterialCommunityIcons name="cards-heart-outline" size={30} style={{ color: "#ffff", marginRight: 8 }} /> : <MaterialCommunityIcons name="heart" size={30} style={{ color: "#30d045", marginRight: 8 }} />}
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity onPress={() => console.log("teste")}>
+                                        {play ? <IconEntypo onPress={() => setPlay(false)} name="controller-play" size={30} style={{ color: "#ffff", height: 32 }} /> : <IconIonicons onPress={() => setPlay(true)} name="pause-sharp" size={30} style={{ color: "#ffff", height: 32 }} />}
+                                    </TouchableOpacity>
+                                </View>
+                            </Animated.View>
+                        )
+                    })
+                }
+            </View>
+        )
+    }
+
     return (
         <SafeAreaView>
             <LinearGradient end={{ x: 0.3, y: 0.2 }} colors={[color == "" ? "#1f232aeb" : color, 'black']}>
@@ -83,52 +131,7 @@ const Home = () => {
                     </View>)
                 }
 
-                <View>
-                    {
-                        musicas?.map((data) => {
-                            return (
-                                <Animated.View key={data?.id} style={{
-                                    position: "absolute",
-                                    bottom: 0,
-                                    transform: [{ translateX: posicao }],
-                                    display: "flex", flexDirection: "row",
-                                    alignItems: "center",
-                                    backgroundColor: data?.color,
-                                    padding: 10,
-                                    borderRadius: 10,
-                                    width: "100%"
-                                }} >
-
-                                    <View>
-                                        <Image source={data?.img} style={{ width: 40, height: 40, alignSelf: 'center' }} />
-                                    </View>
-
-                                    <View style={{ width: "60%" }}>
-                                        <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.musica}</Text>
-                                        <Text style={{ color: "#ffff", fontSize: 13, marginLeft: 5 }}>{data?.nome}</Text>
-                                    </View>
-
-                                    <View style={{ display: "flex", flexDirection: "row" }}>
-
-                                        <TouchableOpacity onPress={() => console.log("teste")}>
-                                            <MaterialCommunityIcons name="cellphone-sound" size={30} style={{ color: "#ffff", marginRight: 8 }} />
-                                        </TouchableOpacity>
-
-                                        <TouchableOpacity onPress={() => setHeart(!heart)}>
-                                            {heart ? <MaterialCommunityIcons name="cards-heart-outline" size={30} style={{ color: "#ffff", marginRight: 8 }} /> : <MaterialCommunityIcons name="heart" size={30} style={{ color: "#30d045", marginRight: 8 }} />}
-                                        </TouchableOpacity>
-
-                                        <TouchableOpacity onPress={() => console.log("teste")}>
-                                            {play ? <IconEntypo onPress={() => setPlay(false)} name="controller-play" size={30} style={{ color: "#ffff", height: 32 }} /> : <IconIonicons onPress={() => setPlay(true)} name="pause-sharp" size={30} style={{ color: "#ffff", height: 32 }} />}
-                                        </TouchableOpacity>
-
-                                    </View>
-                                    
-                                </Animated.View>
-                            )
-                        })
-                    }
-                </View>
+                <PlayControl />
 
             </LinearGradient>
             <StatusBar style="light" />

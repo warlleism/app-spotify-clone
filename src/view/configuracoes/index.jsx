@@ -63,7 +63,7 @@ const Configuracoes = () => {
                     <View style={style.marginTop}>
                         <Text style={{ color: "#ffff", fontWeight: "800" }}>Economia de dados</Text>
 
-                        <View style={[style.Container,style.marginTop]}>
+                        <View style={[style.Container, style.marginTop]}>
 
                             <View style={{ width: "85%" }}>
                                 <Text style={{ color: "#ffff" }}>Qualidade do áudio</Text>
@@ -134,7 +134,7 @@ const Configuracoes = () => {
                             <Slider
                                 style={{ width: "80%", height: 40 }}
                                 minimumValue={0}
-                                maximumValue={50}
+                                maximumValue={12}
                                 minimumTrackTintColor={"#979292f0"}
                                 onValueChange={(value) => setDuracao(value)}
                             />
